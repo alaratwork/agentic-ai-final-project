@@ -1,0 +1,132 @@
+{
+  "departments": {
+    "customs": "Kelsholm",
+    "dispatch": "Brennick",
+    "records": "Halvery",
+    "supply": "Wexmoor",
+    "survey": "Ostrel",
+    "pilotage": "Dunmere"
+  },
+  "staff": [
+    {
+      "staff_id": "S1004",
+      "name": "Ines Vael",
+      "department": "dispatch",
+      "extension": "236"
+    },
+    {
+      "staff_id": "S1007",
+      "name": "Corwin Lorne",
+      "department": "survey",
+      "extension": "811"
+    },
+    {
+      "staff_id": "S1008",
+      "name": "Maren Kell",
+      "department": "customs",
+      "extension": "827"
+    },
+    {
+      "staff_id": "S1013",
+      "name": "Tobiah Ashgrove",
+      "department": "customs",
+      "extension": "894"
+    },
+    {
+      "staff_id": "S1014",
+      "name": "Lise Ostley",
+      "department": "supply",
+      "extension": "616"
+    },
+    {
+      "staff_id": "S1018",
+      "name": "Orrin Arden",
+      "department": "survey",
+      "extension": "270"
+    },
+    {
+      "staff_id": "S1030",
+      "name": "Sabeth Dunlow",
+      "department": "customs",
+      "extension": "393"
+    },
+    {
+      "staff_id": "S1032",
+      "name": "Dace Vey",
+      "department": "customs",
+      "extension": "822"
+    },
+    {
+      "staff_id": "S1048",
+      "name": "Wren Pryce",
+      "department": "dispatch",
+      "extension": "286"
+    },
+    {
+      "staff_id": "S1059",
+      "name": "Pell Mirrin",
+      "department": "customs",
+      "extension": "230"
+    },
+    {
+      "staff_id": "S1063",
+      "name": "Junia Carrow",
+      "department": "records",
+      "extension": "839"
+    },
+    {
+      "staff_id": "S1064",
+      "name": "Harlo Wick",
+      "department": "supply",
+      "extension": "760"
+    },
+    {
+      "staff_id": "S1074",
+      "name": "Ysolde Holloway",
+      "department": "survey",
+      "extension": "686"
+    },
+    {
+      "staff_id": "S1078",
+      "name": "Brannock Sennet",
+      "department": "customs",
+      "extension": "277"
+    },
+    {
+      "staff_id": "S1080",
+      "name": "Tamsin Garrin",
+      "department": "records",
+      "extension": "286"
+    },
+    {
+      "staff_id": "S1082",
+      "name": "Edrik Qestry",
+      "department": "records",
+      "extension": "208"
+    },
+    {
+      "staff_id": "S1087",
+      "name": "Noa Thale",
+      "department": "supply",
+      "extension": "659"
+    },
+    {
+      "staff_id": "S1090",
+      "name": "Calla Lusk",
+      "department": "survey",
+      "extension": "352"
+    },
+    {
+      "staff_id": "S1093",
+      "name": "Fennick Brandt",
+      "department": "supply",
+      "extension": "689"
+    },
+    {
+      "staff_id": "S1094",
+      "name": "Rhoswen Morrow",
+      "department": "dispatch",
+      "extension": "308"
+    }
+  ]
+}

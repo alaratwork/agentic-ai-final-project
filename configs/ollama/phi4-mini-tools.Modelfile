@@ -1,0 +1,38 @@
+# file:     configs/ollama/phi4-mini-tools.Modelfile
+# project:  judging a tool by its cover (group 9, tokens)
+# course:   agentic ai
+# author:   archit gupta
+# purpose:  phi-4-mini with a corrected tool-calling template (same weights)
+# updated:  2026-11-22
+#
+# why: the ollama library template for phi4-mini is malformed for tool calling
+# (ollama issue #9437). it dumps tools in wrapped openai format, renders past
+# tool calls without a closing brace, and expects a <|tool_call|> marker this
+# build never emits. measured on fc-01: 0/10 structured tool calls.
+# this template lists tools in microsoft's <|tool|> block and asks for
+# phi-4-mini's native functools[...] call format, which ollama detects from the
+# template. measured on fc-01: 9/10 correct end to end.
+#
+# build:  ollama pull phi4-mini && ollama create phi4-mini-tools -f configs/ollama/phi4-mini-tools.Modelfile
+# base:   phi4-mini:latest, digest sha256:78fad5d182a7c33065e153a5f8ba210754207ba9d91973f57dffa7f487363753
+
+FROM phi4-mini:latest
+TEMPLATE """
+{{- if or .System .Tools }}<|system|>
+{{- if .System }}{{ .System }}{{ end }}
+{{- if .Tools }}
+You can call functions. To call one or more, reply with only:
+functools[{"name": "<function name>", "arguments": {<arguments as JSON>}}]
+Available functions:
+<|tool|>[{{ range $i, $t := .Tools }}{{ if $i }}, {{ end }}{{ $t.Function }}{{ end }}]<|/tool|>
+{{- end }}<|end|>
+{{- end }}
+{{- range $i, $_ := .Messages }}
+{{- $last := eq (len (slice $.Messages $i)) 1 -}}
+{{- if ne .Role "system" }}<|{{ .Role }}|>{{ .Content }}
+{{- if .ToolCalls }}functools[{{ range $j, $c := .ToolCalls }}{{ if $j }}, {{ end }}{"name": "{{ $c.Function.Name }}", "arguments": {{ $c.Function.Arguments }}}{{ end }}]{{ end }}
+{{- if not $last }}<|end|>{{ end }}
+{{- if and (ne .Role "assistant") $last }}<|end|><|assistant|>{{ end }}
+{{- end }}
+{{- end }}
+"""

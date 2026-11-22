@@ -1,0 +1,63 @@
+{
+  "reference": "VRM",
+  "note": "values = reference units per one unit; rate(base->quote) = value[base] / value[quote]",
+  "currencies": {
+    "VRM": "verrin mark",
+    "KLD": "kelsholm drach",
+    "OSK": "ostrel crown",
+    "TVL": "tavish lira",
+    "HLS": "halvery shilling"
+  },
+  "daily_values": [
+    {
+      "date": "2026-12-01",
+      "values": {
+        "VRM": 1.0,
+        "KLD": 2.85,
+        "OSK": 0.62,
+        "TVL": 1.47,
+        "HLS": 0.38
+      }
+    },
+    {
+      "date": "2026-12-02",
+      "values": {
+        "VRM": 1.0,
+        "KLD": 2.8161,
+        "OSK": 0.6253,
+        "TVL": 1.4491,
+        "HLS": 0.3832
+      }
+    },
+    {
+      "date": "2026-12-03",
+      "values": {
+        "VRM": 1.0,
+        "KLD": 2.842,
+        "OSK": 0.6252,
+        "TVL": 1.4582,
+        "HLS": 0.3803
+      }
+    },
+    {
+      "date": "2026-12-04",
+      "values": {
+        "VRM": 1.0,
+        "KLD": 2.8623,
+        "OSK": 0.6238,
+        "TVL": 1.4464,
+        "HLS": 0.3856
+      }
+    },
+    {
+      "date": "2026-12-05",
+      "values": {
+        "VRM": 1.0,
+        "KLD": 2.8538,
+        "OSK": 0.6215,
+        "TVL": 1.462,
+        "HLS": 0.3841
+      }
+    }
+  ]
+}

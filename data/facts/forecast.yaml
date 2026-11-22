@@ -1,0 +1,25 @@
+# file:     data/facts/forecast.yaml
+# project:  judging a tool by its cover (group 9, tokens)
+# course:   agentic ai
+# author:   archit gupta
+# purpose:  fact sheet for the forecast tools; every description of a and b states all of it
+# updated:  2026-11-22
+
+# rules (fp2 4.5)
+#   functional facts only: purpose, inputs, outputs, scope limits
+#   no claims about quality, speed or accuracy; no usage examples
+#   each output states its unit - without it phi-4-mini reported high_c as °f
+#   (fc-06/07/08: 4/15 correct with a bare placeholder, 15/15 with field units)
+
+capability: forecast
+purpose: Returns the daily forecast for a Verrin Coast town.
+inputs:
+  - {name: town, fact: "town (town name)"}
+  - {name: date, fact: "date (YYYY-MM-DD)"}
+outputs:
+  - {name: high_c, fact: "high_c (daily high, °C)"}
+  - {name: high_f, fact: "high_f (daily high, °F)"}
+  - {name: condition, fact: "condition (sky condition)"}
+  - {name: precip_pct, fact: "precip_pct (chance of precipitation, %)"}
+scope:
+  - "Dates 2026-12-01 to 2026-12-05."

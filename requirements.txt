@@ -1,0 +1,26 @@
+# file:     requirements.txt
+# project:  judging a tool by its cover (group 9, tokens)
+# course:   agentic ai
+# author:   archit gupta
+# purpose:  pinned dependencies for the harness (python 3.12)
+# updated:  2026-11-22
+
+# agent loop and model clients
+langgraph==1.2.24
+langchain-core==1.8.4
+langchain-mcp-adapters==0.3.2
+langchain-ollama==1.1.0
+langchain-openai==1.8.5
+
+# simulated tool servers
+fastmcp==3.4.11
+
+# config, templates, secrets
+python-dotenv==1.2.4
+pyyaml==6.0.4
+jinja2==3.1.6
+
+# tests and metrics
+pytest==9.2.0
+scipy==1.18.1
+pandas==3.1.1
