@@ -1,0 +1,21 @@
+# file:     data/facts/ferry.yaml
+# project:  judging a tool by its cover (group 9, tokens)
+# course:   agentic ai
+# author:   archit gupta
+# purpose:  fact sheet for the ferry tools; every description of a and b states all of it
+# updated:  2026-11-22
+
+# rules (fp2 4.5): functional facts only (purpose, inputs, outputs with units or
+# formats, scope limits); no claims about quality, speed or accuracy; no usage examples
+
+capability: ferry
+purpose: Returns the first sailing of the day on a Verrin Coast ferry route.
+inputs:
+  - {name: route, fact: "route (origin port code, a hyphen, destination port code; direction matters)"}
+  - {name: date, fact: "date (YYYY-MM-DD)"}
+outputs:
+  - {name: departs, fact: "departs (departure time, HH:MM, 24-hour)"}
+  - {name: arrives, fact: "arrives (arrival time, HH:MM, 24-hour)"}
+  - {name: duration_min, fact: "duration_min (crossing time, minutes)"}
+scope:
+  - "Dates 2026-12-01 to 2026-12-05."

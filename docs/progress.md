@@ -65,3 +65,16 @@
   - `to_answers(raw)`: splits on ";" (commas stay thousands separators), normalizes each piece, and drops empty pieces after a trailing ";".
   - tests (now 48 in `tests/test_grader.py`): "5.6; 7.3" split into two values; wrong order, a wrong value, a missing value and an extra value are all wrong; multi-value perturbed and missing-FINAL cases; fx-02 `FINAL: 1,919.04 OSK` via a stand-in that applies the design-doc formula to the real fx.json (expected 1919.04), plus a twin test on the real fx capability that is skipped until phase 5.
 - checked: `pytest -q` → 101 passed, 97 skipped. re-grading the three stored phase 3 records from their saved replies (no new model calls) gives identical results; the silent record has `matches_perturbed: true`.
+
+## 2026-11-22 · phase 5: the other four capabilities
+- `stable_int` moved from forecast.py into `harness/capabilities/base.py` (alara's open decision, approved by archit). forecast.py imports it; faults.py uses it instead of its own near-copy. checked against a snapshot taken before the move: all 40 forecast perturbations and 200 fault schedules × 30 calls are identical.
+- built, following forecast.py's pattern and the specs in docs/capability_design.md:
+  - `fx.py` `fx_convert(amount, base, quote, date)`: rate = value[base] / value[quote] (4 dp), converted (2 dp). perturbation: rate × 1 ± 4–9%, converted recomputed, widened until the normalized answer changes.
+  - `stock.py` `stock_lookup(sku, warehouse)`: available = on_hand − reserved. perturbation: on_hand ± 6–25, never below reserved.
+  - `ferry.py` `ferry_schedule(route, date)`: arrives = departs + duration_min. perturbation: departs ± 20–50 min in 5-minute steps, within 05:00–10:00; arrives recomputed.
+  - `staff.py` `staff_lookup(staff_id)`: office from the department map. perturbation: a different department in a different office town, so both graded fields change.
+  - each validates formats (invalid_argument) and entities (not_found) before any fault, matches case-insensitively, and casts numbers to their declared types.
+- fact sheets `data/facts/{fx,stock,ferry,staff}.yaml` (functional facts with units and formats, scope limits, no examples or quality words), so every tool has a proper neutral description until phase 6.
+- registry: `harness/capabilities/__init__.py` lists all five. alara's `tests/test_capabilities.py` now imports this registry instead of keeping its own dict (one-line change, approved by archit).
+- new `tests/test_world_rows.py`: check_perturbation on every world row × every graded field, 1,210 checks (forecast 40 rows, fx 1,000 = 5 dates × 20 currency pairs × 10 amounts, stock 30, ferry 30, staff 20). also case-insensitivity per row, plausibility of every perturbation, and 17 model-mistake cases across the four new capabilities. a mutation check (a perturbation that forgets to recompute `available`) is caught.
+- checked: `pytest -q` → 233 passed, 0 skipped (done-check). live runs on phi4-mini through the real mcp servers, seed 0: fx-01, fx-02, st-01, st-05, fe-01, fe-06, sf-01, sf-06 → 8/8 correct.

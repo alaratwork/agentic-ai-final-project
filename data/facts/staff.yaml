@@ -1,0 +1,21 @@
+# file:     data/facts/staff.yaml
+# project:  judging a tool by its cover (group 9, tokens)
+# course:   agentic ai
+# author:   archit gupta
+# purpose:  fact sheet for the staff tools; every description of a and b states all of it
+# updated:  2026-11-22
+
+# rules (fp2 4.5): functional facts only (purpose, inputs, outputs with units or
+# formats, scope limits); no claims about quality, speed or accuracy; no usage examples
+
+capability: staff
+purpose: Returns the directory entry for a Verrin Coast Authority staff member.
+inputs:
+  - {name: staff_id, fact: "staff_id (S followed by four digits)"}
+outputs:
+  - {name: name, fact: "name (full name)"}
+  - {name: department, fact: "department (department name)"}
+  - {name: office, fact: "office (office town)"}
+  - {name: extension, fact: "extension (phone extension)"}
+scope:
+  - "Verrin Coast Authority staff only."

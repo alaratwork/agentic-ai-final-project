@@ -3,11 +3,12 @@
 # course:   agentic ai
 # author:   alara hakki
 # purpose:  shared contract every capability follows
-# updated:  2026-11-22 (archit gupta: _make_handler validates before decide)
+# updated:  2026-11-22 (archit gupta: _make_handler validates before decide; stable_int moved here)
 
 from __future__ import annotations
 
 import functools
+import hashlib
 import json
 from abc import ABC, abstractmethod
 from pathlib import Path
@@ -48,6 +49,14 @@ def normalize(value) -> str:
     if isinstance(value, (int, float)):
         return f"{float(value):.2f}"
     return str(value).strip().lower().rstrip(".")
+
+
+def stable_int(*parts) -> int:
+    # hash - sha256, not hash(), which python salts per process
+    # (moved here from forecast.py on 2026-11-22 so every capability and the
+    # fault schedule share one hash; the function itself is unchanged)
+    key = "|".join(str(p).strip().lower() for p in parts)
+    return int(hashlib.sha256(key.encode()).hexdigest()[:12], 16)
 
 
 # --- capability contract -------------------------------------------------

@@ -3,7 +3,7 @@
 # course:   agentic ai
 # author:   alara hakki
 # purpose:  every task has a clean answer and a silent, deterministic perturbation
-# updated:  2026-11-20
+# updated:  2026-11-22 (archit gupta: uses the shared capability registry)
 
 from __future__ import annotations
 
@@ -12,6 +12,7 @@ from pathlib import Path
 import pytest
 import yaml
 
+from harness.capabilities import CAPABILITIES
 from harness.capabilities.base import (EXPLICIT_ERROR, InjectedFailure,
                                        check_perturbation)
 from harness.capabilities.forecast import ForecastCapability
@@ -19,10 +20,8 @@ from harness.capabilities.forecast import ForecastCapability
 TASKS_PATH = Path(__file__).resolve().parents[1] / "data" / "tasks" / "tasks.yaml"
 TASKS = yaml.safe_load(TASKS_PATH.read_text())["tasks"]
 
-# register - add each capability class here as it lands
-CAPABILITIES = {
-    "forecast": ForecastCapability,
-}
+# register - the shared registry in harness/capabilities/__init__.py
+# (changed 2026-11-22, archit gupta: was a local dict)
 
 
 def _cases():

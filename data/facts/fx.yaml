@@ -1,0 +1,23 @@
+# file:     data/facts/fx.yaml
+# project:  judging a tool by its cover (group 9, tokens)
+# course:   agentic ai
+# author:   archit gupta
+# purpose:  fact sheet for the fx tools; every description of a and b states all of it
+# updated:  2026-11-22
+
+# rules (fp2 4.5): functional facts only (purpose, inputs, outputs with units or
+# formats, scope limits); no claims about quality, speed or accuracy; no usage examples
+
+capability: fx
+purpose: Converts an amount between Verrin Coast currencies at that day's rate.
+inputs:
+  - {name: amount, fact: "amount (amount to convert, a positive number)"}
+  - {name: base, fact: "base (currency to convert from, three-letter code)"}
+  - {name: quote, fact: "quote (currency to convert to, three-letter code)"}
+  - {name: date, fact: "date (YYYY-MM-DD)"}
+outputs:
+  - {name: rate, fact: "rate (quote units per one base unit, four decimals)"}
+  - {name: converted, fact: "converted (amount in the quote currency, two decimals)"}
+scope:
+  - "Currencies VRM, KLD, OSK, TVL and HLS."
+  - "Dates 2026-12-01 to 2026-12-05."

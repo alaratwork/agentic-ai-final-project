@@ -7,12 +7,11 @@
 
 from __future__ import annotations
 
-import hashlib
 import threading
 from collections import Counter
 from typing import Literal
 
-from harness.capabilities.base import EXPLICIT_ERROR, Outcome
+from harness.capabilities.base import EXPLICIT_ERROR, Outcome, stable_int
 
 MODES = ("natural", "prefilled")
 FLAW_TYPES = ("explicit", "silent")
@@ -21,12 +20,6 @@ FlawType = Literal["explicit", "silent"]
 # realized success rate is exactly 70% (fp2: "realized success rate of 70%")
 BLOCK = 10
 FAILS_PER_BLOCK = 3
-
-
-def stable_hash(*parts) -> int:
-    # hash - sha256, not hash(), which python salts per process
-    key = "|".join(str(p) for p in parts)
-    return int(hashlib.sha256(key.encode()).hexdigest()[:12], 16)
 
 
 class FaultSchedule:
@@ -62,7 +55,7 @@ class FaultSchedule:
             return flaw  # the flawed tool fails the same way every time
         # natural - rank the 10 slots of this block by hash; the first 3 fail
         block, slot = divmod(index, BLOCK)
-        ranked = sorted(range(BLOCK), key=lambda s: stable_hash(self.episode_id, tool, block, s))
+        ranked = sorted(range(BLOCK), key=lambda s: stable_int(self.episode_id, tool, block, s))
         return flaw if slot in ranked[:FAILS_PER_BLOCK] else "clean"
 
     def decide(self, tool: str) -> Outcome:

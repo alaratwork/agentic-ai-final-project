@@ -5,9 +5,17 @@
 # purpose:  registry of built capabilities, looked up by name
 # updated:  2026-11-22
 
+from .ferry import FerryCapability
 from .forecast import ForecastCapability
+from .fx import FxCapability
+from .staff import StaffCapability
+from .stock import StockCapability
 
-# register - add each capability class here as it lands (phase 5)
+# register - every capability in data/world/ has a class here
 CAPABILITIES = {
     "forecast": ForecastCapability,
+    "fx": FxCapability,
+    "stock": StockCapability,
+    "ferry": FerryCapability,
+    "staff": StaffCapability,
 }

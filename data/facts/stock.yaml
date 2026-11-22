@@ -1,0 +1,22 @@
+# file:     data/facts/stock.yaml
+# project:  judging a tool by its cover (group 9, tokens)
+# course:   agentic ai
+# author:   archit gupta
+# purpose:  fact sheet for the stock tools; every description of a and b states all of it
+# updated:  2026-11-22
+
+# rules (fp2 4.5): functional facts only (purpose, inputs, outputs with units or
+# formats, scope limits); no claims about quality, speed or accuracy; no usage examples
+
+capability: stock
+purpose: Returns stock for one SKU at one Verrin Coast warehouse.
+inputs:
+  - {name: sku, fact: "sku (product code, two letters, a hyphen and four digits)"}
+  - {name: warehouse, fact: "warehouse (three-letter warehouse code)"}
+outputs:
+  - {name: name, fact: "name (product name)"}
+  - {name: on_hand, fact: "on_hand (units on hand)"}
+  - {name: reserved, fact: "reserved (units reserved)"}
+  - {name: available, fact: "available (units available, on hand minus reserved)"}
+scope:
+  - "Warehouses BRN, KLS and WEX."

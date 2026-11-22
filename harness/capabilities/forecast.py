@@ -3,26 +3,19 @@
 # course:   agentic ai
 # author:   alara hakki
 # purpose:  forecast capability - daily high, sky and rain chance by town and date
-# updated:  2026-11-20
+# updated:  2026-11-22 (archit gupta: stable_int now imported from base.py)
 
 from __future__ import annotations
 
-import hashlib
 import re
 
-from .base import Capability, invalid, not_found, ok
+from .base import Capability, invalid, not_found, ok, stable_int
 
 DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 # shift sizes in tenths of a degree - never zero, always visible after normalize
 SHIFTS = (30, 35, 40, 45, 50, 55, 60)
 PLAUSIBLE_C = (-2.0, 16.0)
-
-
-def stable_int(*parts) -> int:
-    # hash - sha256, not hash(), which python salts per process
-    key = "|".join(str(p).strip().lower() for p in parts)
-    return int(hashlib.sha256(key.encode()).hexdigest()[:12], 16)
 
 
 def to_f(high_c: float) -> float:
