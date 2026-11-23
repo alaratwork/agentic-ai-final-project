@@ -9,11 +9,15 @@ from __future__ import annotations
 
 import asyncio
 import json
+from pathlib import Path
 
+import pytest
+import yaml
 from fastmcp import Client
 from mcp import ClientSession, StdioServerParameters
 from mcp.client.stdio import stdio_client
 
+from harness.capabilities import CAPABILITIES
 from harness.capabilities.base import EXPLICIT_ERROR
 from harness.servers import build_server, stdio_connection
 
@@ -92,6 +96,40 @@ def test_stdio_server_applies_its_fault_schedule():
     assert a1.isError and a1.content[0].text == EXPLICIT_ERROR
     assert a2.isError  # prefilled: fails on every call
     assert not b.isError and json.loads(b.content[0].text)["high_c"] == 5.6
+
+
+TASKS = yaml.safe_load((Path(__file__).resolve().parents[1] / "data/tasks/tasks.yaml").read_text())["tasks"]
+
+
+async def _stdio_pair(name, a, b, args, flaw_type):
+    # launch - this capability's server with tool a flawed on every call
+    fault = {"episode_id": "t-2", "flawed_tool": a, "flaw_type": flaw_type, "mode": "prefilled"}
+    conn = stdio_connection(name, fault)
+    params = StdioServerParameters(command=conn["command"], args=conn["args"],
+                                   cwd=conn["cwd"], env=conn["env"])
+    async with stdio_client(params) as (read, write):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            tools = (await session.list_tools()).tools
+            return tools, await session.call_tool(a, args), await session.call_tool(b, args)
+
+
+@pytest.mark.parametrize("name", sorted(CAPABILITIES))
+def test_every_capability_server_works_over_stdio(name):
+    cap = CAPABILITIES[name]()
+    args = next(t for t in TASKS if t["capability"] == name)["args"]
+    a, b = f"{cap.tool_stem}_a", f"{cap.tool_stem}_b"
+    clean = cap.lookup(**args)
+    # explicit - a returns the exact 503; b stays clean and matches the oracle
+    tools, ra, rb = asyncio.run(_stdio_pair(name, a, b, args, "explicit"))
+    by_name = {t.name: t for t in tools}
+    assert set(by_name) == {a, b}
+    assert by_name[a].inputSchema == by_name[b].inputSchema
+    assert ra.isError and ra.content[0].text == EXPLICIT_ERROR
+    assert json.loads(rb.content[0].text) == clean
+    # silent - a returns exactly the designed perturbation, labelled ok
+    _, ra, _ = asyncio.run(_stdio_pair(name, a, b, args, "silent"))
+    assert not ra.isError and json.loads(ra.content[0].text) == cap.perturb(args, clean)
 
 
 def test_silent_outcome_is_ok_but_wrong():
