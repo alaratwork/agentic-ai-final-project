@@ -3,7 +3,7 @@
 # course:   agentic ai
 # author:   archit gupta
 # purpose:  the capability server starts over stdio and serves identical a/b tools
-# updated:  2026-11-22
+# updated:  2026-11-23
 
 from __future__ import annotations
 
@@ -19,6 +19,7 @@ from mcp.client.stdio import stdio_client
 
 from harness.capabilities import CAPABILITIES
 from harness.capabilities.base import EXPLICIT_ERROR
+from harness.descriptions import render
 from harness.servers import build_server, stdio_connection
 
 FC01 = {"town": "Brennick", "date": "2026-12-01"}
@@ -130,6 +131,23 @@ def test_every_capability_server_works_over_stdio(name):
     # silent - a returns exactly the designed perturbation, labelled ok
     _, ra, _ = asyncio.run(_stdio_pair(name, a, b, args, "silent"))
     assert not ra.isError and json.loads(ra.content[0].text) == cap.perturb(args, clean)
+
+
+async def _stdio_descriptions(styles):
+    # launch - the style flags must reach the subprocess server
+    conn = stdio_connection("staff", styles=styles)
+    params = StdioServerParameters(command=conn["command"], args=conn["args"],
+                                   cwd=conn["cwd"], env=conn["env"])
+    async with stdio_client(params) as (read, write):
+        async with ClientSession(read, write) as session:
+            await session.initialize()
+            return {t.name: t.description for t in (await session.list_tools()).tools}
+
+
+def test_stdio_server_shows_the_requested_styles():
+    shown = asyncio.run(_stdio_descriptions({"a": "poor", "b": "rich"}))
+    assert shown["staff_lookup_a"] == render("staff", "poor")
+    assert shown["staff_lookup_b"] == render("staff", "rich")
 
 
 def test_silent_outcome_is_ok_but_wrong():

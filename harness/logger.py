@@ -3,7 +3,7 @@
 # course:   agentic ai
 # author:   archit gupta
 # purpose:  one jsonl record per episode, failures included
-# updated:  2026-11-22
+# updated:  2026-11-23
 
 from __future__ import annotations
 
@@ -49,6 +49,8 @@ def build_record(spec: dict, info: dict, result: dict | None, grade: dict | None
         "provider": info["provider"],
         "returned_model_id": returned_model_id(result["messages"]) if result else None,
         "settings": info["settings"],
+        # styles - which tool showed the rich or poor description (the manipulated variable)
+        "styles": spec.get("styles"),
         "fault": spec["fault"],
         "tool_calls": tool_log,
         "first_tool": tool_log[0]["tool"] if tool_log else None,

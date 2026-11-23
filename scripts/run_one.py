@@ -3,7 +3,7 @@
 # course:   agentic ai
 # author:   archit gupta
 # purpose:  run one task end to end on one model, grade it, and log the record (debug tool)
-# updated:  2026-11-22
+# updated:  2026-11-23
 
 from __future__ import annotations
 
@@ -23,6 +23,7 @@ sys.path.insert(0, str(REPO_ROOT))
 
 from harness.agent import run_episode  # noqa: E402
 from harness.capabilities import CAPABILITIES  # noqa: E402
+from harness.descriptions import EQUAL, STYLES  # noqa: E402
 from harness.faults import FLAW_TYPES, MODES, FaultSchedule, annotate_outcomes  # noqa: E402
 from harness.grader import grade  # noqa: E402
 from harness.logger import build_record, make_episode_id, write_record  # noqa: E402
@@ -51,6 +52,8 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--flaw-type", choices=FLAW_TYPES)
     parser.add_argument("--mode", choices=MODES, default="natural",
                         help="natural: 3 of every 10 calls fail; prefilled: every call fails")
+    parser.add_argument("--style-a", choices=STYLES, default=EQUAL["a"], help="description style of tool a")
+    parser.add_argument("--style-b", choices=STYLES, default=EQUAL["b"], help="description style of tool b")
     parser.add_argument("--condition", default="dev")
     parser.add_argument("--rep", type=int, default=0)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
@@ -70,12 +73,15 @@ def main() -> None:
 
     # spec - everything that defines this episode; its hash is the episode id
     flawed_tool = f"{cap.tool_stem}_{args.flaw_tool}" if args.flaw_tool else None
+    styles = {"a": args.style_a, "b": args.style_b}
     spec = {"task_id": task["id"], "condition": args.condition, "episode_type": args.mode,
             "tool_order": "ab", "rep": args.rep, "seed": args.seed, "model": args.model,
+            "styles": styles,
             "fault": {"flawed_tool": flawed_tool, "flaw_type": args.flaw_type, "mode": args.mode}}
     episode_id = make_episode_id(spec)
     schedule = FaultSchedule(episode_id, flawed_tool, args.flaw_type, args.mode)
     print(f"episode {episode_id} · task {task['id']} · model {args.model} · seed {args.seed}")
+    print(f"descriptions: a={styles['a']} b={styles['b']}")
     print(f"fault: {flawed_tool or 'none'} {args.flaw_type or ''} ({args.mode})\n")
     print(f"PROMPT\n{prompt}\n")
 
@@ -89,7 +95,7 @@ def main() -> None:
     try:
         info = model_info(args.model)
         model = get_chat_model(args.model, seed=args.seed)
-        connections = {task["capability"]: stdio_connection(task["capability"], schedule.params())}
+        connections = {task["capability"]: stdio_connection(task["capability"], schedule.params(), styles)}
         result = asyncio.run(run_episode(model, connections, [HumanMessage(prompt)]))
         graded = grade(result["final_text"], cap, task["args"], task["field"])
         mismatches = annotate_outcomes(schedule.params(), result["tool_log"])

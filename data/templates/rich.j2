@@ -1,0 +1,32 @@
+{#-
+file:     data/templates/rich.j2
+project:  judging a tool by its cover (group 9, tokens)
+course:   agentic ai
+author:   archit gupta
+purpose:  rich description - the same facts as poor.j2, longer, structured and fluent
+updated:  2026-11-23
+
+fp2 4.5: rich and poor differ only in elaboration and presentation (length,
+structure, fluent wording). the overview adds wording, not facts. no quality,
+speed or accuracy claims, no usage examples.
+-#}
+{{ purpose }}
+
+Overview: call this tool with the {{ "argument" if inputs | length == 1 else "arguments" }} listed below. It returns a single result containing the fields listed under "Returns", each followed by a short explanation in parentheses.
+
+Arguments:
+{% for item in inputs %}
+- {{ item.fact }}
+{% endfor %}
+
+Returns:
+{% for item in outputs %}
+- {{ item.fact }}
+{% endfor %}
+{% if scope %}
+
+Coverage:
+{% for line in scope %}
+- {{ line }}
+{% endfor %}
+{% endif %}

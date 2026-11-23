@@ -1,0 +1,12 @@
+{#-
+file:     data/templates/poor.j2
+project:  judging a tool by its cover (group 9, tokens)
+course:   agentic ai
+author:   archit gupta
+purpose:  poor description - one terse line stating every fact on the sheet
+updated:  2026-11-23
+
+same text as the phase 2-5 neutral rendering, so the 40/40 phi-4-mini
+baseline describes the poor/poor pairing. no quality claims, no examples.
+-#}
+{{ purpose }} Arguments: {{ inputs | map(attribute="fact") | join(", ") }}. Returns: {{ outputs | map(attribute="fact") | join(", ") }}. {{ scope | join(" ") }}
