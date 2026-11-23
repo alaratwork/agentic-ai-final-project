@@ -1,0 +1,285 @@
+{
+  "region": "verrin coast",
+  "forecasts": [
+    {
+      "town": "Brennick",
+      "date": "2026-12-01",
+      "high_c": 5.6,
+      "condition": "fog",
+      "precip_pct": 10
+    },
+    {
+      "town": "Brennick",
+      "date": "2026-12-02",
+      "high_c": 7.7,
+      "condition": "windy",
+      "precip_pct": 20
+    },
+    {
+      "town": "Brennick",
+      "date": "2026-12-03",
+      "high_c": 6.6,
+      "condition": "heavy rain",
+      "precip_pct": 95
+    },
+    {
+      "town": "Brennick",
+      "date": "2026-12-04",
+      "high_c": 5.9,
+      "condition": "clear",
+      "precip_pct": 10
+    },
+    {
+      "town": "Brennick",
+      "date": "2026-12-05",
+      "high_c": 4.5,
+      "condition": "sleet",
+      "precip_pct": 75
+    },
+    {
+      "town": "Dunmere",
+      "date": "2026-12-01",
+      "high_c": 7.3,
+      "condition": "light rain",
+      "precip_pct": 55
+    },
+    {
+      "town": "Dunmere",
+      "date": "2026-12-02",
+      "high_c": 3.4,
+      "condition": "overcast",
+      "precip_pct": 10
+    },
+    {
+      "town": "Dunmere",
+      "date": "2026-12-03",
+      "high_c": 3.2,
+      "condition": "clear",
+      "precip_pct": 10
+    },
+    {
+      "town": "Dunmere",
+      "date": "2026-12-04",
+      "high_c": 6.4,
+      "condition": "clear",
+      "precip_pct": 5
+    },
+    {
+      "town": "Dunmere",
+      "date": "2026-12-05",
+      "high_c": 6.2,
+      "condition": "windy",
+      "precip_pct": 10
+    },
+    {
+      "town": "Ostrel",
+      "date": "2026-12-01",
+      "high_c": 10.4,
+      "condition": "overcast",
+      "precip_pct": 25
+    },
+    {
+      "town": "Ostrel",
+      "date": "2026-12-02",
+      "high_c": 10.9,
+      "condition": "clear",
+      "precip_pct": 0
+    },
+    {
+      "town": "Ostrel",
+      "date": "2026-12-03",
+      "high_c": 8.4,
+      "condition": "light rain",
+      "precip_pct": 70
+    },
+    {
+      "town": "Ostrel",
+      "date": "2026-12-04",
+      "high_c": 8.0,
+      "condition": "clear",
+      "precip_pct": 0
+    },
+    {
+      "town": "Ostrel",
+      "date": "2026-12-05",
+      "high_c": 7.3,
+      "condition": "light rain",
+      "precip_pct": 55
+    },
+    {
+      "town": "Kelsholm",
+      "date": "2026-12-01",
+      "high_c": 6.7,
+      "condition": "overcast",
+      "precip_pct": 25
+    },
+    {
+      "town": "Kelsholm",
+      "date": "2026-12-02",
+      "high_c": 11.1,
+      "condition": "sleet",
+      "precip_pct": 60
+    },
+    {
+      "town": "Kelsholm",
+      "date": "2026-12-03",
+      "high_c": 6.6,
+      "condition": "heavy rain",
+      "precip_pct": 95
+    },
+    {
+      "town": "Kelsholm",
+      "date": "2026-12-04",
+      "high_c": 11.1,
+      "condition": "overcast",
+      "precip_pct": 15
+    },
+    {
+      "town": "Kelsholm",
+      "date": "2026-12-05",
+      "high_c": 6.6,
+      "condition": "fog",
+      "precip_pct": 5
+    },
+    {
+      "town": "Tavish",
+      "date": "2026-12-01",
+      "high_c": 4.8,
+      "condition": "clear",
+      "precip_pct": 10
+    },
+    {
+      "town": "Tavish",
+      "date": "2026-12-02",
+      "high_c": 5.0,
+      "condition": "light rain",
+      "precip_pct": 45
+    },
+    {
+      "town": "Tavish",
+      "date": "2026-12-03",
+      "high_c": 2.6,
+      "condition": "light rain",
+      "precip_pct": 45
+    },
+    {
+      "town": "Tavish",
+      "date": "2026-12-04",
+      "high_c": 6.1,
+      "condition": "sleet",
+      "precip_pct": 85
+    },
+    {
+      "town": "Tavish",
+      "date": "2026-12-05",
+      "high_c": 3.0,
+      "condition": "heavy rain",
+      "precip_pct": 95
+    },
+    {
+      "town": "Wexmoor",
+      "date": "2026-12-01",
+      "high_c": 6.1,
+      "condition": "clear",
+      "precip_pct": 10
+    },
+    {
+      "town": "Wexmoor",
+      "date": "2026-12-02",
+      "high_c": 8.8,
+      "condition": "sleet",
+      "precip_pct": 65
+    },
+    {
+      "town": "Wexmoor",
+      "date": "2026-12-03",
+      "high_c": 7.2,
+      "condition": "sleet",
+      "precip_pct": 80
+    },
+    {
+      "town": "Wexmoor",
+      "date": "2026-12-04",
+      "high_c": 6.4,
+      "condition": "clear",
+      "precip_pct": 10
+    },
+    {
+      "town": "Wexmoor",
+      "date": "2026-12-05",
+      "high_c": 10.6,
+      "condition": "light rain",
+      "precip_pct": 45
+    },
+    {
+      "town": "Halvery",
+      "date": "2026-12-01",
+      "high_c": 2.7,
+      "condition": "heavy rain",
+      "precip_pct": 85
+    },
+    {
+      "town": "Halvery",
+      "date": "2026-12-02",
+      "high_c": 5.8,
+      "condition": "windy",
+      "precip_pct": 30
+    },
+    {
+      "town": "Halvery",
+      "date": "2026-12-03",
+      "high_c": 6.3,
+      "condition": "heavy rain",
+      "precip_pct": 75
+    },
+    {
+      "town": "Halvery",
+      "date": "2026-12-04",
+      "high_c": 4.2,
+      "condition": "windy",
+      "precip_pct": 30
+    },
+    {
+      "town": "Halvery",
+      "date": "2026-12-05",
+      "high_c": 4.7,
+      "condition": "fog",
+      "precip_pct": 20
+    },
+    {
+      "town": "Marrowby",
+      "date": "2026-12-01",
+      "high_c": 6.4,
+      "condition": "heavy rain",
+      "precip_pct": 90
+    },
+    {
+      "town": "Marrowby",
+      "date": "2026-12-02",
+      "high_c": 5.7,
+      "condition": "windy",
+      "precip_pct": 10
+    },
+    {
+      "town": "Marrowby",
+      "date": "2026-12-03",
+      "high_c": 3.3,
+      "condition": "light rain",
+      "precip_pct": 45
+    },
+    {
+      "town": "Marrowby",
+      "date": "2026-12-04",
+      "high_c": 4.0,
+      "condition": "light rain",
+      "precip_pct": 70
+    },
+    {
+      "town": "Marrowby",
+      "date": "2026-12-05",
+      "high_c": 4.2,
+      "condition": "clear",
+      "precip_pct": 5
+    }
+  ]
+}

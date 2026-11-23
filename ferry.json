@@ -1,0 +1,194 @@
+{
+  "towns": {
+    "BRN": "Brennick",
+    "DUN": "Dunmere",
+    "OST": "Ostrel",
+    "KLS": "Kelsholm",
+    "TAV": "Tavish",
+    "WEX": "Wexmoor",
+    "HLV": "Halvery",
+    "MRB": "Marrowby"
+  },
+  "sailings": [
+    {
+      "route": "BRN-KLS",
+      "date": "2026-12-01",
+      "first_departure": "08:35",
+      "duration_min": 55
+    },
+    {
+      "route": "BRN-KLS",
+      "date": "2026-12-02",
+      "first_departure": "08:25",
+      "duration_min": 55
+    },
+    {
+      "route": "BRN-KLS",
+      "date": "2026-12-03",
+      "first_departure": "08:20",
+      "duration_min": 55
+    },
+    {
+      "route": "BRN-KLS",
+      "date": "2026-12-04",
+      "first_departure": "07:30",
+      "duration_min": 55
+    },
+    {
+      "route": "BRN-KLS",
+      "date": "2026-12-05",
+      "first_departure": "05:55",
+      "duration_min": 55
+    },
+    {
+      "route": "KLS-BRN",
+      "date": "2026-12-01",
+      "first_departure": "06:25",
+      "duration_min": 55
+    },
+    {
+      "route": "KLS-BRN",
+      "date": "2026-12-02",
+      "first_departure": "08:25",
+      "duration_min": 55
+    },
+    {
+      "route": "KLS-BRN",
+      "date": "2026-12-03",
+      "first_departure": "08:00",
+      "duration_min": 55
+    },
+    {
+      "route": "KLS-BRN",
+      "date": "2026-12-04",
+      "first_departure": "08:35",
+      "duration_min": 55
+    },
+    {
+      "route": "KLS-BRN",
+      "date": "2026-12-05",
+      "first_departure": "06:50",
+      "duration_min": 55
+    },
+    {
+      "route": "DUN-OST",
+      "date": "2026-12-01",
+      "first_departure": "08:20",
+      "duration_min": 40
+    },
+    {
+      "route": "DUN-OST",
+      "date": "2026-12-02",
+      "first_departure": "05:50",
+      "duration_min": 40
+    },
+    {
+      "route": "DUN-OST",
+      "date": "2026-12-03",
+      "first_departure": "08:55",
+      "duration_min": 40
+    },
+    {
+      "route": "DUN-OST",
+      "date": "2026-12-04",
+      "first_departure": "05:35",
+      "duration_min": 40
+    },
+    {
+      "route": "DUN-OST",
+      "date": "2026-12-05",
+      "first_departure": "08:35",
+      "duration_min": 40
+    },
+    {
+      "route": "OST-DUN",
+      "date": "2026-12-01",
+      "first_departure": "08:35",
+      "duration_min": 40
+    },
+    {
+      "route": "OST-DUN",
+      "date": "2026-12-02",
+      "first_departure": "07:45",
+      "duration_min": 40
+    },
+    {
+      "route": "OST-DUN",
+      "date": "2026-12-03",
+      "first_departure": "08:20",
+      "duration_min": 40
+    },
+    {
+      "route": "OST-DUN",
+      "date": "2026-12-04",
+      "first_departure": "07:05",
+      "duration_min": 40
+    },
+    {
+      "route": "OST-DUN",
+      "date": "2026-12-05",
+      "first_departure": "08:15",
+      "duration_min": 40
+    },
+    {
+      "route": "TAV-HLV",
+      "date": "2026-12-01",
+      "first_departure": "08:15",
+      "duration_min": 95
+    },
+    {
+      "route": "TAV-HLV",
+      "date": "2026-12-02",
+      "first_departure": "08:20",
+      "duration_min": 95
+    },
+    {
+      "route": "TAV-HLV",
+      "date": "2026-12-03",
+      "first_departure": "08:55",
+      "duration_min": 95
+    },
+    {
+      "route": "TAV-HLV",
+      "date": "2026-12-04",
+      "first_departure": "05:50",
+      "duration_min": 95
+    },
+    {
+      "route": "TAV-HLV",
+      "date": "2026-12-05",
+      "first_departure": "08:55",
+      "duration_min": 95
+    },
+    {
+      "route": "WEX-MRB",
+      "date": "2026-12-01",
+      "first_departure": "08:30",
+      "duration_min": 130
+    },
+    {
+      "route": "WEX-MRB",
+      "date": "2026-12-02",
+      "first_departure": "08:20",
+      "duration_min": 130
+    },
+    {
+      "route": "WEX-MRB",
+      "date": "2026-12-03",
+      "first_departure": "07:05",
+      "duration_min": 130
+    },
+    {
+      "route": "WEX-MRB",
+      "date": "2026-12-04",
+      "first_departure": "05:50",
+      "duration_min": 130
+    },
+    {
+      "route": "WEX-MRB",
+      "date": "2026-12-05",
+      "first_departure": "06:40",
+      "duration_min": 130
+    }
+  ]
+}

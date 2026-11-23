@@ -1,0 +1,229 @@
+# file:     data/tasks/tasks.yaml
+# project:  judging a tool by its cover (group 9, tokens)
+# course:   agentic ai
+# author:   alara hakki
+# purpose:  task set - one tool call, one graded field, eight per capability
+# updated:  2026-11-20
+
+# rules
+#   expected answers are never stored here; the grader computes them as
+#   cap.answer(cap.lookup(**args), field) so world edits cannot drift
+#   every prompt states its args verbatim, so failures are tool choice,
+#   not argument formatting
+#   quote every date - unquoted yyyy-mm-dd loads as a datetime.date
+
+version: 1
+answer_instruction: >-
+  Use the tools to answer. Reply with only the final value, in the unit or
+  format the question asks for, and nothing else.
+
+tasks:
+  # --- forecast: high_c (5), high_f (3) -----------------------------------
+  - id: fc-01
+    capability: forecast
+    field: high_c
+    args: {town: "Brennick", date: "2026-12-01"}
+    prompt: "What is the forecast high, in °C, for Brennick on 2026-12-01?"
+  - id: fc-02
+    capability: forecast
+    field: high_c
+    args: {town: "Dunmere", date: "2026-12-03"}
+    prompt: "What is the forecast high, in °C, for Dunmere on 2026-12-03?"
+  - id: fc-03
+    capability: forecast
+    field: high_c
+    args: {town: "Ostrel", date: "2026-12-05"}
+    prompt: "What is the forecast high, in °C, for Ostrel on 2026-12-05?"
+  - id: fc-04
+    capability: forecast
+    field: high_c
+    args: {town: "Kelsholm", date: "2026-12-02"}
+    prompt: "What is the forecast high, in °C, for Kelsholm on 2026-12-02?"
+  - id: fc-05
+    capability: forecast
+    field: high_c
+    args: {town: "Tavish", date: "2026-12-04"}
+    prompt: "What is the forecast high, in °C, for Tavish on 2026-12-04?"
+  - id: fc-06
+    capability: forecast
+    field: high_f
+    args: {town: "Wexmoor", date: "2026-12-01"}
+    prompt: "What is the forecast high, in °F, for Wexmoor on 2026-12-01?"
+  - id: fc-07
+    capability: forecast
+    field: high_f
+    args: {town: "Halvery", date: "2026-12-03"}
+    prompt: "What is the forecast high, in °F, for Halvery on 2026-12-03?"
+  - id: fc-08
+    capability: forecast
+    field: high_f
+    args: {town: "Marrowby", date: "2026-12-05"}
+    prompt: "What is the forecast high, in °F, for Marrowby on 2026-12-05?"
+
+  # --- fx: converted (8) ----------------------------------------------------
+  - id: fx-01
+    capability: fx
+    field: converted
+    args: {amount: 250.0, base: "KLD", quote: "VRM", date: "2026-12-01"}
+    prompt: "On 2026-12-01, how much is 250 KLD in VRM? Give the amount to two decimals."
+  - id: fx-02
+    capability: fx
+    field: converted
+    args: {amount: 1200.0, base: "VRM", quote: "OSK", date: "2026-12-02"}
+    prompt: "On 2026-12-02, how much is 1200 VRM in OSK? Give the amount to two decimals."
+  - id: fx-03
+    capability: fx
+    field: converted
+    args: {amount: 80.0, base: "TVL", quote: "HLS", date: "2026-12-03"}
+    prompt: "On 2026-12-03, how much is 80 TVL in HLS? Give the amount to two decimals."
+  - id: fx-04
+    capability: fx
+    field: converted
+    args: {amount: 540.0, base: "OSK", quote: "KLD", date: "2026-12-04"}
+    prompt: "On 2026-12-04, how much is 540 OSK in KLD? Give the amount to two decimals."
+  - id: fx-05
+    capability: fx
+    field: converted
+    args: {amount: 3000.0, base: "HLS", quote: "TVL", date: "2026-12-05"}
+    prompt: "On 2026-12-05, how much is 3000 HLS in TVL? Give the amount to two decimals."
+  - id: fx-06
+    capability: fx
+    field: converted
+    args: {amount: 75.5, base: "KLD", quote: "OSK", date: "2026-12-02"}
+    prompt: "On 2026-12-02, how much is 75.5 KLD in OSK? Give the amount to two decimals."
+  - id: fx-07
+    capability: fx
+    field: converted
+    args: {amount: 450.0, base: "HLS", quote: "KLD", date: "2026-12-01"}
+    prompt: "On 2026-12-01, how much is 450 HLS in KLD? Give the amount to two decimals."
+  - id: fx-08
+    capability: fx
+    field: converted
+    args: {amount: 95.0, base: "TVL", quote: "VRM", date: "2026-12-05"}
+    prompt: "On 2026-12-05, how much is 95 TVL in VRM? Give the amount to two decimals."
+
+  # --- stock: available (8) -------------------------------------------------
+  - id: st-01
+    capability: stock
+    field: available
+    args: {sku: "VC-1001", warehouse: "BRN"}
+    prompt: "How many units of VC-1001 are available (on hand minus reserved) at warehouse BRN?"
+  - id: st-02
+    capability: stock
+    field: available
+    args: {sku: "VC-1004", warehouse: "KLS"}
+    prompt: "How many units of VC-1004 are available (on hand minus reserved) at warehouse KLS?"
+  - id: st-03
+    capability: stock
+    field: available
+    args: {sku: "VC-1012", warehouse: "WEX"}
+    prompt: "How many units of VC-1012 are available (on hand minus reserved) at warehouse WEX?"
+  - id: st-04
+    capability: stock
+    field: available
+    args: {sku: "VC-1019", warehouse: "KLS"}
+    prompt: "How many units of VC-1019 are available (on hand minus reserved) at warehouse KLS?"
+  - id: st-05
+    capability: stock
+    field: available
+    args: {sku: "VC-1023", warehouse: "BRN"}
+    prompt: "How many units of VC-1023 are available (on hand minus reserved) at warehouse BRN?"
+  - id: st-06
+    capability: stock
+    field: available
+    args: {sku: "VC-1031", warehouse: "WEX"}
+    prompt: "How many units of VC-1031 are available (on hand minus reserved) at warehouse WEX?"
+  - id: st-07
+    capability: stock
+    field: available
+    args: {sku: "VC-1042", warehouse: "KLS"}
+    prompt: "How many units of VC-1042 are available (on hand minus reserved) at warehouse KLS?"
+  - id: st-08
+    capability: stock
+    field: available
+    args: {sku: "VC-1055", warehouse: "BRN"}
+    prompt: "How many units of VC-1055 are available (on hand minus reserved) at warehouse BRN?"
+
+  # --- ferry: departs (5), arrives (3) --------------------------------------
+  - id: fe-01
+    capability: ferry
+    field: departs
+    args: {route: "BRN-KLS", date: "2026-12-01"}
+    prompt: "When does the first ferry on route BRN-KLS depart on 2026-12-01? Answer as HH:MM, 24-hour."
+  - id: fe-02
+    capability: ferry
+    field: departs
+    args: {route: "KLS-BRN", date: "2026-12-03"}
+    prompt: "When does the first ferry on route KLS-BRN depart on 2026-12-03? Answer as HH:MM, 24-hour."
+  - id: fe-03
+    capability: ferry
+    field: departs
+    args: {route: "DUN-OST", date: "2026-12-02"}
+    prompt: "When does the first ferry on route DUN-OST depart on 2026-12-02? Answer as HH:MM, 24-hour."
+  - id: fe-04
+    capability: ferry
+    field: departs
+    args: {route: "OST-DUN", date: "2026-12-04"}
+    prompt: "When does the first ferry on route OST-DUN depart on 2026-12-04? Answer as HH:MM, 24-hour."
+  - id: fe-05
+    capability: ferry
+    field: departs
+    args: {route: "TAV-HLV", date: "2026-12-05"}
+    prompt: "When does the first ferry on route TAV-HLV depart on 2026-12-05? Answer as HH:MM, 24-hour."
+  - id: fe-06
+    capability: ferry
+    field: arrives
+    args: {route: "WEX-MRB", date: "2026-12-01"}
+    prompt: "When does the first ferry on route WEX-MRB arrive on 2026-12-01? Answer as HH:MM, 24-hour."
+  - id: fe-07
+    capability: ferry
+    field: arrives
+    args: {route: "BRN-KLS", date: "2026-12-04"}
+    prompt: "When does the first ferry on route BRN-KLS arrive on 2026-12-04? Answer as HH:MM, 24-hour."
+  - id: fe-08
+    capability: ferry
+    field: arrives
+    args: {route: "TAV-HLV", date: "2026-12-02"}
+    prompt: "When does the first ferry on route TAV-HLV arrive on 2026-12-02? Answer as HH:MM, 24-hour."
+
+  # --- staff: department (5), office (3) ------------------------------------
+  - id: sf-01
+    capability: staff
+    field: department
+    args: {staff_id: "S1004"}
+    prompt: "Which department does staff member S1004 work in? Answer with the department name only."
+  - id: sf-02
+    capability: staff
+    field: department
+    args: {staff_id: "S1008"}
+    prompt: "Which department does staff member S1008 work in? Answer with the department name only."
+  - id: sf-03
+    capability: staff
+    field: department
+    args: {staff_id: "S1014"}
+    prompt: "Which department does staff member S1014 work in? Answer with the department name only."
+  - id: sf-04
+    capability: staff
+    field: department
+    args: {staff_id: "S1063"}
+    prompt: "Which department does staff member S1063 work in? Answer with the department name only."
+  - id: sf-05
+    capability: staff
+    field: department
+    args: {staff_id: "S1074"}
+    prompt: "Which department does staff member S1074 work in? Answer with the department name only."
+  - id: sf-06
+    capability: staff
+    field: office
+    args: {staff_id: "S1018"}
+    prompt: "In which town is the office of staff member S1018? Answer with the town name only."
+  - id: sf-07
+    capability: staff
+    field: office
+    args: {staff_id: "S1087"}
+    prompt: "In which town is the office of staff member S1087? Answer with the town name only."
+  - id: sf-08
+    capability: staff
+    field: office
+    args: {staff_id: "S1094"}
+    prompt: "In which town is the office of staff member S1094? Answer with the town name only."

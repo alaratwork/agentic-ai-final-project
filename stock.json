@@ -1,0 +1,201 @@
+{
+  "products": {
+    "VC-1001": "storm lantern",
+    "VC-1004": "brass deck cleat",
+    "VC-1012": "oilskin jacket",
+    "VC-1019": "hand bilge pump",
+    "VC-1023": "mooring line 20m",
+    "VC-1031": "tide table almanac",
+    "VC-1038": "signal flare kit",
+    "VC-1042": "galley kettle",
+    "VC-1047": "wool sea blanket",
+    "VC-1055": "chart dividers"
+  },
+  "warehouses": {
+    "BRN": "Brennick",
+    "KLS": "Kelsholm",
+    "WEX": "Wexmoor"
+  },
+  "stock": [
+    {
+      "sku": "VC-1001",
+      "warehouse": "BRN",
+      "on_hand": 37,
+      "reserved": 5
+    },
+    {
+      "sku": "VC-1001",
+      "warehouse": "KLS",
+      "on_hand": 146,
+      "reserved": 21
+    },
+    {
+      "sku": "VC-1001",
+      "warehouse": "WEX",
+      "on_hand": 73,
+      "reserved": 38
+    },
+    {
+      "sku": "VC-1004",
+      "warehouse": "BRN",
+      "on_hand": 87,
+      "reserved": 0
+    },
+    {
+      "sku": "VC-1004",
+      "warehouse": "KLS",
+      "on_hand": 36,
+      "reserved": 1
+    },
+    {
+      "sku": "VC-1004",
+      "warehouse": "WEX",
+      "on_hand": 242,
+      "reserved": 53
+    },
+    {
+      "sku": "VC-1012",
+      "warehouse": "BRN",
+      "on_hand": 211,
+      "reserved": 37
+    },
+    {
+      "sku": "VC-1012",
+      "warehouse": "KLS",
+      "on_hand": 325,
+      "reserved": 3
+    },
+    {
+      "sku": "VC-1012",
+      "warehouse": "WEX",
+      "on_hand": 193,
+      "reserved": 36
+    },
+    {
+      "sku": "VC-1019",
+      "warehouse": "BRN",
+      "on_hand": 84,
+      "reserved": 30
+    },
+    {
+      "sku": "VC-1019",
+      "warehouse": "KLS",
+      "on_hand": 299,
+      "reserved": 71
+    },
+    {
+      "sku": "VC-1019",
+      "warehouse": "WEX",
+      "on_hand": 82,
+      "reserved": 5
+    },
+    {
+      "sku": "VC-1023",
+      "warehouse": "BRN",
+      "on_hand": 296,
+      "reserved": 75
+    },
+    {
+      "sku": "VC-1023",
+      "warehouse": "KLS",
+      "on_hand": 368,
+      "reserved": 30
+    },
+    {
+      "sku": "VC-1023",
+      "warehouse": "WEX",
+      "on_hand": 45,
+      "reserved": 13
+    },
+    {
+      "sku": "VC-1031",
+      "warehouse": "BRN",
+      "on_hand": 243,
+      "reserved": 36
+    },
+    {
+      "sku": "VC-1031",
+      "warehouse": "KLS",
+      "on_hand": 372,
+      "reserved": 143
+    },
+    {
+      "sku": "VC-1031",
+      "warehouse": "WEX",
+      "on_hand": 208,
+      "reserved": 75
+    },
+    {
+      "sku": "VC-1038",
+      "warehouse": "BRN",
+      "on_hand": 98,
+      "reserved": 42
+    },
+    {
+      "sku": "VC-1038",
+      "warehouse": "KLS",
+      "on_hand": 378,
+      "reserved": 70
+    },
+    {
+      "sku": "VC-1038",
+      "warehouse": "WEX",
+      "on_hand": 317,
+      "reserved": 155
+    },
+    {
+      "sku": "VC-1042",
+      "warehouse": "BRN",
+      "on_hand": 265,
+      "reserved": 89
+    },
+    {
+      "sku": "VC-1042",
+      "warehouse": "KLS",
+      "on_hand": 62,
+      "reserved": 3
+    },
+    {
+      "sku": "VC-1042",
+      "warehouse": "WEX",
+      "on_hand": 153,
+      "reserved": 67
+    },
+    {
+      "sku": "VC-1047",
+      "warehouse": "BRN",
+      "on_hand": 77,
+      "reserved": 11
+    },
+    {
+      "sku": "VC-1047",
+      "warehouse": "KLS",
+      "on_hand": 334,
+      "reserved": 21
+    },
+    {
+      "sku": "VC-1047",
+      "warehouse": "WEX",
+      "on_hand": 95,
+      "reserved": 49
+    },
+    {
+      "sku": "VC-1055",
+      "warehouse": "BRN",
+      "on_hand": 125,
+      "reserved": 1
+    },
+    {
+      "sku": "VC-1055",
+      "warehouse": "KLS",
+      "on_hand": 115,
+      "reserved": 22
+    },
+    {
+      "sku": "VC-1055",
+      "warehouse": "WEX",
+      "on_hand": 254,
+      "reserved": 116
+    }
+  ]
+}
